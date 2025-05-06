@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- --------- UNICONS ---------- -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- --------- FAVICON ---------- -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
+    <title>Portfolio | Ludiflex</title>
+</head>
+<body>
+   <div class="container">
+    <!-- --------------- HEADER --------------- -->
+      <nav id="header">
+        <div class="nav-logo">
+            <p class="nav-name">Zeini</p>
+            <span>.</span>
+        </div>
+        <div class="nav-menu" id="myNavMenu">
+            <ul class="nav_menu_list">
+                <li class="nav_list">
+                    <a href="#home" class="nav-link active-link">Accueil</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#about" class="nav-link">À propos</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#projects" class="nav-link">Projets</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <div class="circle"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-button">
+            <a href="cv/ZeinyCV.pdf" download>
+                <button class="btn">Télécharger CV <i class="uil uil-file-alt"></i></button>
+            </a>
+        </div>
+        
+        <div class="nav-menu-btn">
+            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
+      </nav>
+
+
+    <!-- -------------- MAIN ---------------- -->
+    <main class="wrapper">
+       <!-- -------------- FEATURED BOX ---------------- -->
+       <section class="featured-box" id="home">
+          <div class="featured-text">
+            <div class="featured-text-card">
+                <span>Zeini Cheikh Sidi Ely</span>
+            </div>
+            <div class="featured-name">
+                <p>Je suis <span class="typedText"></span></p>
+            </div>
+            <div class="featured-text-info">
+                <p>Bonjour, je suis <strong>Zeini</strong>, un développeur passionné par les technologies. Je considère la programmation comme une forme d’art moderne.</p>
+            </div>
+            <div class="featured-text-btn">
+                <button class="btn blue-btn">Me recruter</button>
+            
+                <a href="cv/ZeinyCV.pdf" class="btn" download>
+                    Télécharger CV <i class="uil uil-file-alt"></i>
+                </a>
+            </div>
+            
+            <div class="social_icons">
+                <a href="mailto:23025@supnum.mr" class="icon" title="Email">
+                    <i class="uil uil-envelope"></i>
+                </a>
+                <a href="https://github.com/Zeini-23025" class="icon" target="_blank" title="GitHub">
+                    <i class="uil uil-github-alt"></i>
+                </a>
+                <a href="https://www.reddit.com/user/Zeini-25" class="icon" target="_blank" title="Reddit">
+                    <i class="uil uil-reddit-alien-alt"></i>
+                </a>
+                <a href="https://web.facebook.com/zeinyboy.rim.3/" class="icon" target="_blank" title="Facebook">
+                    <i class="uil uil-facebook-f"></i>
+                </a>
+            </div>
+            
+          </div>
+          <div class="featured-image">
+            <div class="image">
+                <img src="assets/img/Anime-Girl-Rain.png" alt="avatar">
+            </div>
+          </div>
+          <div class="scroll-icon-box">
+            <a href="#about" class="scroll-btn">
+                <i class="uil uil-mouse-alt"></i>
+                <p>Faire défiler</p>
+            </a>
+          </div>
+       </section>
+
+<!-- -------------- ABOUT BOX ---------------- -->
+<section class="section" id="about">
+    <div class="top-header">
+      <h1>À propos de moi</h1>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="about-info">
+          <h3>👋 Bienvenue dans mon univers de développement</h3>
+          <p>
+            🎯 Bonjour, je suis Étudiant en deuxième année de licence professionnelle en développement de systèmes informatiques à l’Institut Supérieur du Numérique SupNum.<br><br>
+            💼 Je développe des applications web performantes, crée des solutions logicielles évolutives et j’utilise des outils modernes pour optimiser le flux de travail.
+          </p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="skills-box">
+          <div class="skills-header">
+            <h3>Frontend</h3>
+          </div>
+          <div class="skills-list">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Bootstrap</span>
+            <span>JavaScript</span>
+            <span>React</span>
+          </div>
+        </div>
+        <div class="skills-box">
+          <div class="skills-header">
+            <h3>Backend</h3>
+          </div>
+          <div class="skills-list">
+            <span>PHP</span>
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>Django</span>
+            <span>Flask</span>
+          </div>
+        </div>
+        <div class="skills-box">
+          <div class="skills-header">
+            <h3>Base de données</h3>
+          </div>
+          <div class="skills-list">
+            <span>MySQL</span>
+            <span>MongoDB</span>
+          </div>
+        </div>
+        <div class="skills-box">
+          <div class="skills-header">
+            <h3>Outils</h3>
+          </div>
+          <div class="skills-list">
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>Docker</span>
+            <span>Linux</span>
+            <span>GitHub Actions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+  
+<!-- -------------- PROJECT BOX ---------------- -->
+<section class="section" id="projects">
+  <div class="top-header">
+    <h1>Projets</h1>
+  </div>
+  <div class="project-container">
+    <div class="project-box">
+      <i class="uil uil-file-alt"></i>
+      <h3>Gestion des plaintes</h3>
+      <label>Soumission, traitement et suivi des réclamations</label>
+      <p><strong>Technologies :</strong> HTML, CSS, JavaScript, PHP, MySQL</p>
+    </div>
+    <div class="project-box">
+      <i class="uil uil-graduation-cap"></i>
+      <h3>Gestion des projets intégrateurs et stages</h3>
+      <label>Soumission de candidatures et gestion des affectations</label>
+      <p><strong>Technologies :</strong> HTML, CSS, JavaScript, PHP, MySQL</p>
+    </div>
+    <div class="project-box">
+      <i class="uil uil-home"></i>
+      <h3>Gestion des revenus immobiliers</h3>
+      <label>Suivi des revenus, tâches administratives</label>
+      <p><strong>Technologies :</strong> React, Django, DRF</p>
+    </div>
+  </div>
+</section>
+
+<!-- -------------- CONTACT BOX ---------------- -->
+<section class="section" id="contact">
+  <div class="top-header">
+    <h1>Contactez-moi</h1>
+    <span>Vous avez un projet en tête ? Discutons-en !</span>
+  </div>
+  <div class="row">
+     <div class="col">
+        <div class="contact-info">
+            <h2>Me trouver <i class="uil uil-corner-right-down"></i></h2>
+            <p><i class="uil uil-envelope"></i> Email : 23025@supnum.mr</p>
+            <p><i class="uil uil-phone"></i> Téléphone : +222 30524849</p>
+        </div>
+     </div>
+     <div class="col">
+        <div class="form-control">
+            <div class="form-inputs">
+                <input type="text" class="input-field" placeholder="Nom">
+                <input type="text" class="input-field" placeholder="Email">
+            </div>
+            <div class="text-area">
+                <textarea placeholder="Message"></textarea>
+            </div>
+            <div class="form-button">
+                <button class="btn">Envoyer <i class="uil uil-message"></i></button>
+            </div>
+        </div>
+     </div>
+  </div>
+</section>
+
+</main>
+
+<!-- --------------- FOOTER --------------- -->
+<footer>
+    <div class="top-footer">
+        <p>Zeini Cheikh Sidi Ely</p>
+    </div>
+    <div class="middle-footer">
+        <ul class="footer-menu">
+            <li class="footer_menu_list"><a href="#home">Accueil</a></li>
+            <li class="footer_menu_list"><a href="#about">À propos</a></li>
+            <li class="footer_menu_list"><a href="#projects">Projets</a></li>
+            <li class="footer_menu_list"><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="footer-social-icons">
+        <a href="mailto:23025@supnum.mr" class="icon" title="Email">
+            <i class="uil uil-envelope"></i>
+        </a>
+        <a href="https://github.com/Zeini-23025" class="icon" target="_blank" title="GitHub">
+            <i class="uil uil-github-alt"></i>
+        </a>
+        <a href="https://www.reddit.com/user/Zeini-25" class="icon" target="_blank" title="Reddit">
+            <i class="uil uil-reddit-alien-alt"></i>
+        </a>
+        <a href="https://web.facebook.com/zeinyboy.rim.3/" class="icon" target="_blank" title="Facebook">
+            <i class="uil uil-facebook-f"></i>
+        </a>
+    </div>
+    
+    <div class="bottom-footer">
+        <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Zeini Cheikh Sidi Ely</a> - Tous droits réservés</p>
+    </div>
+</footer>
+</div>
+
+<!-- ----- TYPING JS Link ----- -->
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+<!-- ----- SCROLL REVEAL JS Link----- -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- ----- MAIN JS ----- -->
+<script src="assets/js/main.js"></script>
+</body>
+</html>

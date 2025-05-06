@@ -1,0 +1,20 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Déclenche l'action lors d'un push sur la branche 'main'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Utilise une machine virtuelle Ubuntu
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2  # Récupère le code du repository
+
+      - name: Set up GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3  # Action pour déployer sur GitHub Pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Token d'authentification
+          publish_dir: ./  # Le répertoire contenant les fichiers à déployer (ici, le répertoire racine)
