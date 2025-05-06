@@ -16,5 +16,5 @@ jobs:
       - name: Set up GitHub Pages
         uses: peaceiris/actions-gh-pages@v3  # Action pour déployer sur GitHub Pages
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Token d'authentification
+          github_token: ${{ secrets.PERSONAL_TOKEN }}  # Token d'authentification
           publish_dir: ./  # Le répertoire contenant les fichiers à déployer (ici, le répertoire racine)
