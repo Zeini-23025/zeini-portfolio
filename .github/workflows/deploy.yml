@@ -3,18 +3,21 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Déclenche l'action lors d'un push sur la branche 'main'
+      - main
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # Utilise une machine virtuelle Ubuntu
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2  # Récupère le code du repository
+        uses: actions/checkout@v2
 
-      - name: Set up GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3  # Action pour déployer sur GitHub Pages
+      - name: Create CNAME file
+        run: echo 'zeiny.me' > CNAME
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.PERSONAL_TOKEN }}  # Token d'authentification
-          publish_dir: ./  # Le répertoire contenant les fichiers à déployer (ici, le répertoire racine)
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: ./
