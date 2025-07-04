@@ -7,7 +7,7 @@ Bonjour, je suis **Zeini Cheikh Sidi Ely**, étudiant en deuxième année de lic
 ## 📬 Contact
 
 - 📞 Téléphone : **30524849**
-- 📧 Email : **23025@supnum.mr**
+- 📧 Email : **zeiny.cheikh.dev@gmail.com**
 - 🌐 [GitHub](https://github.com/Zeini-23025)
 
 ---
