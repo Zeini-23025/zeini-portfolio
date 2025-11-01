@@ -102,6 +102,12 @@ img {
 .section-subtitle {
     text-align: center;
     max-width: 700px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+/* Language switcher styles */
 .lang-switcher {
     display: flex;
     gap: 0.5rem;
@@ -112,32 +118,34 @@ img {
 .lang-btn {
     background: transparent;
     border: 1px solid var(--border-color);
-    padding: 6px 10px;
-    border-radius: 6px;
+    padding: 8px 12px;
+    border-radius: 999px; /* pill */
     font-weight: 600;
     cursor: pointer;
     color: var(--text-color);
-    transition: background-color 0.15s, color 0.15s, transform 0.08s;
+    transition: background-color 0.12s ease, color 0.12s ease, transform 0.08s ease, box-shadow 0.12s;
+    font-size: 0.9rem;
+    min-width: 42px;
+    text-align: center;
+    box-shadow: none;
 }
 
 .lang-btn:hover {
     transform: translateY(-2px);
     background-color: var(--surface-color);
+    box-shadow: var(--shadow);
 }
 
 .lang-btn.active {
     background-color: var(--primary-color);
     color: white;
     border-color: var(--primary-color);
+    box-shadow: 0 6px 18px rgba(0, 123, 255, 0.18);
 }
 
 .lang-btn:focus {
     outline: 2px solid rgba(0,123,255,0.25);
     outline-offset: 2px;
-}
-    margin: 0 auto 3rem auto;
-    font-size: 1.1rem;
-    color: var(--secondary-color);
 }
 
 .subsection-title {
