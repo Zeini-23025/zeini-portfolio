@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'nav.experience': 'Stages',
             'nav.contact': 'Contact',
             'hero.name': 'Je suis <span class="typedText"></span>',
-            'hero.intro': 'Bonjour, je suis <strong>Zeini</strong>, unÉtudiant en 3ᵉ année en Développement des Systèmes d’Information, passionné par la conception d’applications web modernes, la gestion de projets et l’exploration des nouvelles technologies.',
+            'hero.intro': 'Bonjour, je suis <strong>Zeini</strong>, un Étudiant en 3ᵉ année en Développement des Systèmes d’Information, passionné par la conception d’applications web modernes, la gestion de projets et l’exploration des nouvelles technologies.',
             'hero.hire': 'Me recruter',
             'hero.download': 'Télécharger CV <i class="uil uil-file-alt"></i>',
             'about.title': 'À propos de moi',
