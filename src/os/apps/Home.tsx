@@ -4,9 +4,18 @@ interface HomeAppProps {
     onLaunch?: (appId: string) => void;
 }
 
+import { useState } from 'react';
+import { Toast } from '../components/Toast';
+
 export const HomeApp: React.FC<HomeAppProps> = ({ onLaunch }) => {
+    const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+    const showToast = (msg: string) => {
+        setToastMessage(msg);
+    };
+
     const handleRestrictedClick = (msg: string) => {
-        alert(msg);
+        showToast(msg);
     };
 
     const handleItemClick = (label: string) => {
@@ -15,22 +24,24 @@ export const HomeApp: React.FC<HomeAppProps> = ({ onLaunch }) => {
         } else if (label === 'bio.txt' && onLaunch) {
             onLaunch('about');
         } else {
-            handleRestrictedClick(`Opened ${label} (Empty)`);
+            handleRestrictedClick("Come on bro… why are you so curious? :)");
         }
     };
 
     return (
-        <div className="flex h-full text-gray-200 font-sans">
+        <div className="flex h-full text-gray-200 font-sans relative">
+            {toastMessage && <Toast message={toastMessage} onClose={() => setToastMessage(null)} />}
+
             {/* Sidebar */}
             <div className="w-14 md:w-48 bg-[#2a2e32] border-r border-white/10 flex flex-col p-2 text-sm select-none transition-all duration-300">
                 <div className="mb-4">
                     <div className="text-gray-500 text-xs font-bold px-2 mb-1 uppercase tracking-wider hidden md:block">Places</div>
-                    <NavItem icon={<HardDrive size={16} />} label="Root (/)" onClick={() => handleRestrictedClick("Bro what are you doing? Get out, that is not your business 😐")} />
+                    <NavItem icon={<HardDrive size={16} />} label="Root (/)" onClick={() => handleRestrictedClick("Bro what are you doing? Get out, that is not your business :)")} />
                     <NavItem icon={<Folder size={16} />} label="Home (~)" active />
-                    <NavItem icon={<Folder size={16} />} label="Desktop" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? 👀")} />
-                    <NavItem icon={<Download size={16} />} label="Downloads" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? 👀")} />
-                    <NavItem icon={<FileText size={16} />} label="Documents" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? 👀")} />
-                    <NavItem icon={<ImageIcon size={16} />} label="Pictures" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? 👀")} />
+                    <NavItem icon={<Folder size={16} />} label="Desktop" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? :)")} />
+                    <NavItem icon={<Download size={16} />} label="Downloads" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? :)")} />
+                    <NavItem icon={<FileText size={16} />} label="Documents" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? :)")} />
+                    <NavItem icon={<ImageIcon size={16} />} label="Pictures" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? :)")} />
                 </div>
             </div>
 
@@ -47,7 +58,7 @@ export const HomeApp: React.FC<HomeAppProps> = ({ onLaunch }) => {
 
                 {/* File Grid */}
                 <div className="flex-1 p-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-[repeat(auto-fill,minmax(100px,1fr))] content-start gap-2 md:gap-4 overflow-auto">
-                    <FileItem label="Projects" icon={<Folder className="fill-blue-500 text-blue-300" />} onClick={() => handleItemClick('Projects')} />
+                    {/* Projects removed as requested */}
                     <FileItem label="Desktop" icon={<Folder className="fill-blue-500 text-blue-300" />} onClick={() => handleItemClick('Desktop')} />
                     <FileItem label="Downloads" icon={<Download className="text-blue-400" />} onClick={() => handleItemClick('Downloads')} />
                     <FileItem label="Documents" icon={<FileText className="text-gray-400" />} onClick={() => handleItemClick('Documents')} />
@@ -58,9 +69,9 @@ export const HomeApp: React.FC<HomeAppProps> = ({ onLaunch }) => {
                 </div>
 
                 {/* Status Bar */}
-                <div className="h-6 bg-[#2a2e32] border-t border-white/10 flex items-center px-3 text-xs text-gray-500 justify-between">
-                    <span>7 items</span>
-                    <span>Free space: 124 GiB</span>
+                <div className="h-6 bg-[#2a2e32] border-t border-white/10 flex items-center px-3 text-xs text-gray-500 justify-between flex-shrink-0">
+                    <span>6 items</span>
+                    <span className="hidden xs:block">Free space: 124 GiB</span>
                 </div>
             </div>
         </div>
