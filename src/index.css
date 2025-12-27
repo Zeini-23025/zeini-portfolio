@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --kde-blue: #3daee9;
+  --kde-dark: #232629;
+  --kde-panel: #2a2e32;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Custom Scrollbar for Terminal/Windows */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1b1d;
+}
+::-webkit-scrollbar-thumb {
+  background: #3daee9;
+  border-radius: 4px;
+}
