@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { Folder, FileText, ChevronRight, HardDrive, Download, Globe, Github, ArrowLeft, RefreshCw, X, Image } from 'lucide-react';
 import { PROJECTS } from '../../data/content';
+import { Toast } from '../components/Toast';
 
 export const ProjectsApp = () => {
     const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
+    const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+    const showToast = (msg: string) => {
+        setToastMessage(msg);
+    };
 
     const handleRestrictedClick = (msg: string) => {
-        alert(msg); // Simple alert for now, could be a custom toast
+        showToast(msg);
     };
 
     if (selectedProject) {
@@ -72,17 +78,19 @@ export const ProjectsApp = () => {
     }
 
     return (
-        <div className="flex h-full text-gray-200">
+        <div className="flex h-full text-gray-200 relative">
+            {toastMessage && <Toast message={toastMessage} onClose={() => setToastMessage(null)} />}
+
             {/* Sidebar - Dolphin Style */}
             <div className="w-14 md:w-48 bg-[#2a2e32] border-r border-white/10 flex flex-col p-2 text-sm select-none transition-all duration-300 flex-shrink-0">
                 <div className="mb-4">
                     <div className="text-gray-500 text-xs font-bold px-2 mb-1 uppercase tracking-wider hidden md:block">Places</div>
-                    <NavItem icon={<HardDrive size={16} />} label="Root (/)" onClick={() => handleRestrictedClick("Bro what are you doing? Get out, that is not your business 😐")} />
+                    <NavItem icon={<HardDrive size={16} />} label="Root (/)" onClick={() => handleRestrictedClick("Bro what are you doing? Get out, that is not your business :)")} />
                     <NavItem icon={<Folder size={16} />} label="Home (~)" active />
-                    <NavItem icon={<Folder size={16} />} label="Desktop" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? 👀")} />
-                    <NavItem icon={<Download size={16} />} label="Downloads" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? 👀")} />
-                    <NavItem icon={<FileText size={16} />} label="Documents" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? 👀")} />
-                    <NavItem icon={<Image size={16} />} label="Pictures" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? 👀")} />
+                    <NavItem icon={<Folder size={16} />} label="Desktop" onClick={() => handleRestrictedClick("Come on bro… why are you so curious?  :)")} />
+                    <NavItem icon={<Download size={16} />} label="Downloads" onClick={() => handleRestrictedClick("Come on bro… why are you so curious?  :)")} />
+                    <NavItem icon={<FileText size={16} />} label="Documents" onClick={() => handleRestrictedClick("Come on bro… why are you so curious?  :)")} />
+                    <NavItem icon={<Image size={16} />} label="Pictures" onClick={() => handleRestrictedClick("Come on bro… why are you so curious?  :)")} />
                 </div>
 
                 <div>
@@ -121,7 +129,7 @@ export const ProjectsApp = () => {
                     ))}
 
                     {/* Fake Files for Realism */}
-                    <div className="flex flex-col items-center gap-2 group p-2 rounded hover:bg-[#3daee9]/20 cursor-pointer transition-colors border border-transparent hover:border-[#3daee9]/40" onClick={() => alert("Just a text file :)")}>
+                    <div className="flex flex-col items-center gap-2 group p-2 rounded hover:bg-[#3daee9]/20 cursor-pointer transition-colors border border-transparent hover:border-[#3daee9]/40" onClick={() => showToast("Just a text file :)")}>
                         <div className="w-16 h-16 flex items-center justify-center text-gray-500">
                             <FileText size={48} />
                         </div>
