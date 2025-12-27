@@ -21,12 +21,12 @@ export const Panel: React.FC<PanelProps> = ({ openWindows, onWindowClick, onLaun
         <div className="absolute bottom-0 left-0 right-0 h-10 bg-[#2a2e32] border-t border-white/5 flex items-center justify-between px-2 select-none z-50">
 
             {/* Left: Launcher & Active Tasks */}
-            <div className="flex items-center h-full gap-1">
+            <div className="flex items-center h-full gap-1 overflow-x-auto no-scrollbar">
 
                 {/* Start Menu Button */}
                 <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    className={`h-8 w-8 flex items-center justify-center rounded hover:bg-white/10 transition-colors ${isMenuOpen ? 'bg-kde-blue/20' : ''}`}
+                    className={`h-8 w-8 flex-shrink-0 flex items-center justify-center rounded hover:bg-white/10 transition-colors ${isMenuOpen ? 'bg-kde-blue/20' : ''}`}
                 >
                     <div className="font-bold text-kde-blue text-xl">Z</div>
                 </button>
@@ -37,28 +37,28 @@ export const Panel: React.FC<PanelProps> = ({ openWindows, onWindowClick, onLaun
                         <button
                             key={window.id}
                             onClick={() => onWindowClick(window.id)}
-                            className={`h-8 px-3 min-w-[120px] max-w-[200px] flex items-center gap-2 rounded border-b-2 transition-all ${window.isActive && !window.isMinimized
+                            className={`h-8 px-2 md:px-3 min-w-[40px] md:min-w-[120px] max-w-[200px] flex items-center justify-center md:justify-start gap-2 rounded border-b-2 transition-all ${window.isActive && !window.isMinimized
                                 ? 'bg-white/10 border-kde-blue'
                                 : 'hover:bg-white/5 border-transparent'
                                 } ${window.isMinimized ? 'opacity-60' : ''}`}
                         >
                             <span className="opacity-80 scale-75">{window.icon}</span>
-                            <span className="text-xs truncate text-gray-200">{window.title}</span>
+                            <span className="text-xs truncate text-gray-200 hidden md:block">{window.title}</span>
                         </button>
                     ))}
                 </div>
             </div>
 
             {/* Right: System Tray */}
-            <div className="flex items-center gap-3 px-2 text-gray-400 text-xs">
-                <div className="flex gap-2">
+            <div className="flex items-center gap-3 px-2 text-gray-400 text-xs flex-shrink-0">
+                <div className="hidden sm:flex gap-2">
                     <Wifi size={16} />
                     <Volume2 size={16} />
                     <Battery size={16} />
                 </div>
                 <div className="flex flex-col items-end leading-tight">
                     <span>{format(time, 'HH:mm')}</span>
-                    <span className="text-[10px]">{format(time, 'MMM d')}</span>
+                    <span className="text-[10px] hidden sm:block">{format(time, 'MMM d')}</span>
                 </div>
             </div>
 

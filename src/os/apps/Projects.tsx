@@ -74,9 +74,9 @@ export const ProjectsApp = () => {
     return (
         <div className="flex h-full text-gray-200">
             {/* Sidebar - Dolphin Style */}
-            <div className="w-48 bg-[#2a2e32] border-r border-white/10 flex flex-col p-2 text-sm select-none">
+            <div className="w-14 md:w-48 bg-[#2a2e32] border-r border-white/10 flex flex-col p-2 text-sm select-none transition-all duration-300 flex-shrink-0">
                 <div className="mb-4">
-                    <div className="text-gray-500 text-xs font-bold px-2 mb-1 uppercase tracking-wider">Places</div>
+                    <div className="text-gray-500 text-xs font-bold px-2 mb-1 uppercase tracking-wider hidden md:block">Places</div>
                     <NavItem icon={<HardDrive size={16} />} label="Root (/)" onClick={() => handleRestrictedClick("Bro what are you doing? Get out, that is not your business 😐")} />
                     <NavItem icon={<Folder size={16} />} label="Home (~)" active />
                     <NavItem icon={<Folder size={16} />} label="Desktop" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? 👀")} />
@@ -86,19 +86,19 @@ export const ProjectsApp = () => {
                 </div>
 
                 <div>
-                    <div className="text-gray-500 text-xs font-bold px-2 mb-1 uppercase tracking-wider">Devices</div>
+                    <div className="text-gray-500 text-xs font-bold px-2 mb-1 uppercase tracking-wider hidden md:block">Devices</div>
                     <NavItem icon={<HardDrive size={16} />} label="900GB Volume" />
                 </div>
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 flex flex-col bg-[#232629]">
+            <div className="flex-1 flex flex-col bg-[#232629] min-w-0">
                 {/* Navbar/Path */}
                 <div className="h-10 border-b border-white/10 flex items-center px-4 bg-[#2a2e32] gap-2">
                     <button className="hover:bg-white/10 p-1 rounded"><ChevronRight className="rotate-180" size={16} /></button>
                     <button className="hover:bg-white/10 p-1 rounded"><ChevronRight size={16} /></button>
-                    <div className="flex-1 bg-[#1b1e20] rounded px-3 py-1 text-sm flex items-center shadow-inner border border-white/5">
-                        <span className="text-gray-400">/home/zeiny/</span>
+                    <div className="flex-1 bg-[#1b1e20] rounded px-3 py-1 text-sm flex items-center shadow-inner border border-white/5 overflow-hidden">
+                        <span className="text-gray-400 truncate">/home/zeiny/</span>
                         <span className="text-white">projects</span>
                     </div>
                 </div>

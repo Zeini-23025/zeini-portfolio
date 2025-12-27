@@ -32,7 +32,10 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
     zIndex,
 }) => {
     const nodeRef = useRef(null);
-    const [size, setSize] = useState({ width: 800, height: 500 });
+    const [size, setSize] = useState({
+        width: Math.min(800, window.innerWidth - 32),
+        height: Math.min(500, window.innerHeight - 100)
+    });
 
     // if (isMinimized) return null; // REMOVED to persist drag position
 
@@ -51,7 +54,13 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
             <div
                 ref={nodeRef}
                 className={`absolute ${isMaximized ? 'inset-0 !transform-none !w-full !h-[calc(100%-3rem)]' : ''} animate-in fade-in zoom-in-95 duration-200 pointer-events-auto ${isMinimized ? 'opacity-0 pointer-events-none' : ''}`}
-                style={{ zIndex, width: isMaximized ? '100%' : 'auto', display: isMinimized ? 'none' : 'block' }}
+                style={{
+                    zIndex,
+                    width: isMaximized ? '100%' : 'auto',
+                    display: isMinimized ? 'none' : 'block',
+                    left: isMaximized ? 0 : undefined, // Reset for max
+                    top: isMaximized ? 0 : undefined
+                }}
                 onClick={() => onFocus(id)}
             >
                 <ResizableBox

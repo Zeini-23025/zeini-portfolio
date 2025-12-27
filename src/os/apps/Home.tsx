@@ -22,9 +22,9 @@ export const HomeApp: React.FC<HomeAppProps> = ({ onLaunch }) => {
     return (
         <div className="flex h-full text-gray-200 font-sans">
             {/* Sidebar */}
-            <div className="w-48 bg-[#2a2e32] border-r border-white/10 flex flex-col p-2 text-sm select-none">
+            <div className="w-14 md:w-48 bg-[#2a2e32] border-r border-white/10 flex flex-col p-2 text-sm select-none transition-all duration-300">
                 <div className="mb-4">
-                    <div className="text-gray-500 text-xs font-bold px-2 mb-1 uppercase tracking-wider">Places</div>
+                    <div className="text-gray-500 text-xs font-bold px-2 mb-1 uppercase tracking-wider hidden md:block">Places</div>
                     <NavItem icon={<HardDrive size={16} />} label="Root (/)" onClick={() => handleRestrictedClick("Bro what are you doing? Get out, that is not your business 😐")} />
                     <NavItem icon={<Folder size={16} />} label="Home (~)" active />
                     <NavItem icon={<Folder size={16} />} label="Desktop" onClick={() => handleRestrictedClick("Come on bro… why are you so curious? 👀")} />
@@ -40,13 +40,13 @@ export const HomeApp: React.FC<HomeAppProps> = ({ onLaunch }) => {
                 <div className="h-10 border-b border-white/10 flex items-center px-4 bg-[#2a2e32] gap-2">
                     <button className="hover:bg-white/10 p-1 rounded"><ChevronRight className="rotate-180" size={16} /></button>
                     <button className="hover:bg-white/10 p-1 rounded"><ChevronRight size={16} /></button>
-                    <div className="flex-1 bg-[#1b1e20] rounded px-3 py-1 text-sm flex items-center shadow-inner border border-white/5">
-                        <span className="text-gray-400">/home/zeiny/</span>
+                    <div className="flex-1 bg-[#1b1e20] rounded px-3 py-1 text-sm flex items-center shadow-inner border border-white/5 overflow-hidden">
+                        <span className="text-gray-400 truncate">/home/zeiny/</span>
                     </div>
                 </div>
 
                 {/* File Grid */}
-                <div className="flex-1 p-4 grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] content-start gap-4">
+                <div className="flex-1 p-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-[repeat(auto-fill,minmax(100px,1fr))] content-start gap-2 md:gap-4 overflow-auto">
                     <FileItem label="Projects" icon={<Folder className="fill-blue-500 text-blue-300" />} onClick={() => handleItemClick('Projects')} />
                     <FileItem label="Desktop" icon={<Folder className="fill-blue-500 text-blue-300" />} onClick={() => handleItemClick('Desktop')} />
                     <FileItem label="Downloads" icon={<Download className="text-blue-400" />} onClick={() => handleItemClick('Downloads')} />
@@ -70,10 +70,11 @@ export const HomeApp: React.FC<HomeAppProps> = ({ onLaunch }) => {
 const NavItem = ({ icon, label, active, onClick }: { icon: any, label: string, active?: boolean, onClick?: () => void }) => (
     <div
         onClick={onClick}
-        className={`flex items-center gap-3 px-2 py-1.5 rounded cursor-pointer mb-0.5 ${active ? 'bg-[#3daee9]/20 text-[#3daee9]' : 'hover:bg-white/5 text-gray-400 hover:text-gray-200'}`}
+        className={`flex items-center gap-3 px-2 py-1.5 rounded cursor-pointer mb-0.5 justify-center md:justify-start ${active ? 'bg-[#3daee9]/20 text-[#3daee9]' : 'hover:bg-white/5 text-gray-400 hover:text-gray-200'}`}
+        title={label}
     >
         {icon}
-        <span>{label}</span>
+        <span className="hidden md:block truncate">{label}</span>
     </div>
 );
 
