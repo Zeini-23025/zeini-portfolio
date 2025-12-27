@@ -70,11 +70,10 @@ export const HomeApp: React.FC<HomeAppProps> = ({ onLaunch }) => {
 const NavItem = ({ icon, label, active, onClick }: { icon: any, label: string, active?: boolean, onClick?: () => void }) => (
     <div
         onClick={onClick}
-        className={`flex items-center gap-3 px-2 py-1.5 rounded cursor-pointer mb-0.5 justify-center md:justify-start ${active ? 'bg-[#3daee9]/20 text-[#3daee9]' : 'hover:bg-white/5 text-gray-400 hover:text-gray-200'}`}
-        title={label}
+        className={`flex items-center gap-3 px-2 py-1.5 rounded cursor-pointer mb-0.5 ${active ? 'bg-[#3daee9]/20 text-[#3daee9]' : 'hover:bg-white/5 text-gray-400 hover:text-gray-200'}`}
     >
         {icon}
-        <span className="hidden md:block truncate">{label}</span>
+        <span>{label}</span>
     </div>
 );
 

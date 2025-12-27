@@ -46,7 +46,6 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
     return (
         <Draggable
             handle=".window-titlebar"
-            bounds="parent"
             nodeRef={nodeRef}
             onStart={() => onFocus(id)}
             disabled={isMaximized}
@@ -72,37 +71,37 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
                     resizeHandles={isMaximized ? [] : ['se', 'e', 's']}
                     className={`flex flex-col rounded-lg shadow-2xl overflow-hidden border border-white/10 ${isMaximized ? 'rounded-none h-full w-full' : ''}`}
                     handle={
-                        <span className="react-resizable-handle react-resizable-handle-se cursor-se-resize absolute bottom-0 right-0 w-4 h-4 z-50" />
+                        <span className="react-resizable-handle react-resizable-handle-se cursor-se-resize absolute bottom-0 right-0 w-6 h-6 z-50 pointer-events-auto" />
                     }
                 >
                     <div className="flex flex-col h-full w-full">
                         {/* Title Bar - KDE Breeze Dark Style */}
-                        <div className={`window-titlebar h-9 flex items-center justify-between px-3 select-none flex-shrink-0 ${isActive ? 'bg-[#31363b] text-[#eff0f1]' : 'bg-[#2a2e32] text-[#898b8d]'
+                        <div className={`window-titlebar h-10 md:h-9 flex items-center justify-between px-3 select-none flex-shrink-0 cursor-move touch-none ${isActive ? 'bg-[#31363b] text-[#eff0f1]' : 'bg-[#2a2e32] text-[#898b8d]'
                             }`}>
                             {/* Title */}
                             <div className="flex items-center gap-2">
-                                <span className="font-sans text-sm tracking-wide">{title}</span>
+                                <span className="font-sans text-sm tracking-wide pointer-events-none">{title}</span>
                             </div>
 
                             {/* Window Controls */}
-                            <div className="flex items-center space-x-1">
+                            <div className="flex items-center space-x-2 md:space-x-1" onTouchStart={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()}>
                                 <button
                                     onClick={(e) => { e.stopPropagation(); onMinimize(id); }}
-                                    className="p-1 hover:bg-white/10 rounded-full transition-colors"
+                                    className="p-1.5 md:p-1 hover:bg-white/10 rounded-full transition-colors"
                                 >
-                                    <Minus size={14} />
+                                    <Minus size={16} className="md:w-3.5 md:h-3.5" />
                                 </button>
                                 <button
                                     onClick={(e) => { e.stopPropagation(); onMaximize(id); }}
-                                    className="p-1 hover:bg-white/10 rounded-full transition-colors"
+                                    className="p-1.5 md:p-1 hover:bg-white/10 rounded-full transition-colors"
                                 >
-                                    {isMaximized ? <Square size={12} /> : <Maximize2 size={12} />}
+                                    {isMaximized ? <Square size={14} className="md:w-3 md:h-3" /> : <Maximize2 size={14} className="md:w-3 md:h-3" />}
                                 </button>
                                 <button
                                     onClick={(e) => { e.stopPropagation(); onClose(id); }}
-                                    className={`p-1 hover:bg-red-500 rounded-full transition-colors ${isActive ? 'text-[#eff0f1]' : ''}`}
+                                    className={`p-1.5 md:p-1 hover:bg-red-500 rounded-full transition-colors ${isActive ? 'text-[#eff0f1]' : ''}`}
                                 >
-                                    <X size={14} />
+                                    <X size={16} className="md:w-3.5 md:h-3.5" />
                                 </button>
                             </div>
                         </div>
