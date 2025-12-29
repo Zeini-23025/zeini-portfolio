@@ -38,19 +38,31 @@ export const ProjectsApp = () => {
                 {/* Browser Content */}
                 <div className="flex-1 overflow-auto bg-white text-gray-800 relative">
                     {/* Hero Section */}
-                    <div className="h-48 bg-gradient-to-r from-blue-600 to-purple-600 text-white flex flex-col justify-center px-8 relative overflow-hidden">
+                    <div className={`h-48 ${selectedProject.type === 'Experience' ? 'bg-gradient-to-r from-green-600 to-teal-600' : 'bg-gradient-to-r from-blue-600 to-purple-600'} text-white flex flex-col justify-center px-8 relative overflow-hidden`}>
                         <div className="absolute inset-0 bg-black/20" />
                         <h1 className="text-4xl font-bold relative z-10">{selectedProject.title}</h1>
-                        <p className="text-blue-100 mt-2 relative z-10">{selectedProject.type}</p>
+                        <div className="flex gap-4 items-center mt-2 relative z-10">
+                            <p className="text-blue-100">{selectedProject.type}</p>
+                            {selectedProject.company && (
+                                <>
+                                    <span className="text-blue-100">•</span>
+                                    <p className="text-blue-100">{selectedProject.company}</p>
+                                </>
+                            )}
+                            {selectedProject.duration && (
+                                <>
+                                    <span className="text-blue-100">•</span>
+                                    <p className="text-blue-100">{selectedProject.duration}</p>
+                                </>
+                            )}
+                        </div>
                     </div>
 
                     <div className="max-w-4xl mx-auto p-8">
                         <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 mb-8 -mt-12 relative z-20">
-                            <h2 className="text-2xl font-bold mb-4 text-gray-800">About this Project</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-gray-800">About this {selectedProject.type === 'Experience' ? 'Experience' : 'Project'}</h2>
                             <p className="text-gray-600 leading-relaxed mb-6">
                                 {selectedProject.description}
-                                <br /><br />
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             </p>
 
                             <h3 className="text-lg font-semibold mb-3 text-gray-800">Tech Stack</h3>
@@ -63,12 +75,21 @@ export const ProjectsApp = () => {
                             </div>
 
                             <div className="flex gap-4">
-                                <button className="px-6 py-2 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center gap-2">
-                                    <Github size={18} /> View Source
-                                </button>
-                                <button className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors flex items-center gap-2">
-                                    <Globe size={18} /> Live Demo
-                                </button>
+                                {selectedProject.github && (
+                                    <a
+                                        href={selectedProject.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="px-6 py-2 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center gap-2"
+                                    >
+                                        <Github size={18} /> View Source
+                                    </a>
+                                )}
+                                {!selectedProject.github && selectedProject.type === 'Experience' && (
+                                    <div className="px-6 py-2 bg-gray-300 text-gray-500 rounded-lg font-medium flex items-center gap-2 cursor-not-allowed">
+                                        <Github size={18} /> Private Repository
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -119,8 +140,8 @@ export const ProjectsApp = () => {
                             className="flex flex-col items-center gap-2 group p-2 rounded hover:bg-[#3daee9]/20 cursor-pointer transition-colors border border-transparent hover:border-[#3daee9]/40"
                             onClick={() => setSelectedProject(project)}
                         >
-                            <div className="w-16 h-16 flex items-center justify-center text-blue-400">
-                                <Folder size={48} className="fill-blue-500/20" />
+                            <div className={`w-16 h-16 flex items-center justify-center ${project.type === 'Experience' ? 'text-green-400' : 'text-blue-400'}`}>
+                                <Folder size={48} className={project.type === 'Experience' ? 'fill-green-500/20' : 'fill-blue-500/20'} />
                             </div>
                             <span className="text-xs text-center line-clamp-2 w-full break-words group-hover:text-white text-gray-300">
                                 {project.title}
