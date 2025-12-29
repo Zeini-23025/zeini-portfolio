@@ -58,7 +58,7 @@ export const HomeApp: React.FC<HomeAppProps> = ({ onLaunch }) => {
 
                 {/* File Grid */}
                 <div className="flex-1 p-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-[repeat(auto-fill,minmax(100px,1fr))] content-start gap-2 md:gap-4 overflow-auto">
-                    {/* Projects removed as requested */}
+                    <FileItem label="Projects" icon={<Folder className="fill-blue-500 text-blue-300" />} onClick={() => handleItemClick('Projects')} />
                     <FileItem label="Desktop" icon={<Folder className="fill-blue-500 text-blue-300" />} onClick={() => handleItemClick('Desktop')} />
                     <FileItem label="Downloads" icon={<Download className="text-blue-400" />} onClick={() => handleItemClick('Downloads')} />
                     <FileItem label="Documents" icon={<FileText className="text-gray-400" />} onClick={() => handleItemClick('Documents')} />
@@ -70,7 +70,7 @@ export const HomeApp: React.FC<HomeAppProps> = ({ onLaunch }) => {
 
                 {/* Status Bar */}
                 <div className="h-6 bg-[#2a2e32] border-t border-white/10 flex items-center px-3 text-xs text-gray-500 justify-between flex-shrink-0">
-                    <span>6 items</span>
+                    <span>8 items</span>
                     <span className="hidden xs:block">Free space: 124 GiB</span>
                 </div>
             </div>
