@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Panel } from './components/Panel';
 import { WindowFrame } from './components/WindowFrame';
 import { ContextMenu } from './components/ContextMenu';
@@ -45,6 +45,22 @@ export const Desktop = () => {
     const [wallpaperIndex, setWallpaperIndex] = useState(0);
     const [contextMenu, setContextMenu] = useState<{ x: number, y: number } | null>(null);
     const [showMatrix, setShowMatrix] = useState(false);
+
+    useEffect(() => {
+        if (!showMatrix) return;
+
+        const stopMatrix = () => setShowMatrix(false);
+
+        window.addEventListener('keydown', stopMatrix);
+        window.addEventListener('click', stopMatrix);
+        window.addEventListener('touchstart', stopMatrix);
+
+        return () => {
+            window.removeEventListener('keydown', stopMatrix);
+            window.removeEventListener('click', stopMatrix);
+            window.removeEventListener('touchstart', stopMatrix);
+        };
+    }, [showMatrix]);
 
 
 

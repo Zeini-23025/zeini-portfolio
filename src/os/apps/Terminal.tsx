@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { PROFILE } from '../../data/content';
+import { PROFILE, SKILLS, PROJECTS } from '../../data/content';
 
 interface TerminalAppProps {
     onCommand?: (command: string) => void;
@@ -45,24 +45,24 @@ export const TerminalApp: React.FC<TerminalAppProps> = ({ onCommand }) => {
                 output.push("zeini");
                 break;
             case 'skills':
-                output.push(
-                    "Languages: TypeScript, JavaScript, Python",
-                    "Frontend: React, TailwindCSS, Vite",
-                    "Backend: Node.js, Express, Postgres",
-                    "Tools: Git, Docker, Linux/Bash"
-                );
+                output.push("Technical Skills:", "-----------------");
+                SKILLS.forEach(skillGroup => {
+                    output.push(`${skillGroup.category}: ${skillGroup.items.join(", ")}`);
+                });
                 break;
             case 'projects':
                 output.push(
                     "Fetching projects from GitHub...",
-                    "--------------------------------",
-                    "1. zeini-os-portfolio [Active]",
-                    "2. e-commerce-dashboard",
-                    "3. task-manager-api",
+                    "--------------------------------"
+                );
+                PROJECTS.forEach((project, index) => {
+                    output.push(`${index + 1}. ${project.id} - ${project.title}`);
+                });
+                output.push(
                     "--------------------------------",
                     "Tip: Type 'ls projects/' to see file structure."
                 );
-                if (onCommand) onCommand('open_projects'); // Optional integration to open apps
+                // if (onCommand) onCommand('open_projects'); // Optional integration to open apps
                 break;
             case 'ls':
                 output.push("Desktop  Documents  Downloads  bio.txt  skills.json  projects/");
@@ -133,3 +133,4 @@ export const TerminalApp: React.FC<TerminalAppProps> = ({ onCommand }) => {
         </div>
     );
 };
+
