@@ -25,8 +25,8 @@ interface WindowState {
 }
 
 const WALLPAPERS = [
-    "/wallpapers/Anime-Girl-Rain.png",
-    "/wallpapers/Manga-Girl-Rain.png",
+    "wallpapers/Anime-Girl-Rain.png",
+    "wallpapers/Manga-Girl-Rain.png",
     "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=2574&auto=format&fit=crop", // Dark Mesh
 ];
 

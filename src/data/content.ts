@@ -5,7 +5,7 @@ export const PROFILE = {
     email: "zeiny.cheikh.dev@gmail.com",
     github: "https://github.com/Zeini-23025",
     reddit: "https://www.reddit.com/user/Zeini-25",
-    cv: "/legacy/cv/ZeinyCV.pdf", // Pointing to legacy location for now
+    cv: "legacy/cv/ZeinyCV.pdf", // Pointing to legacy location for now
     bio: "Student in 3rd year Information Systems Development. Passionate about web application design, project management, and new technologies. Specialized in robust software solutions."
 };
 

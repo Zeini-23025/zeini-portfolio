@@ -21,7 +21,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
     return (
         <div className="h-full w-full relative flex items-center justify-center overflow-hidden">
             {/* Background - Blur style */}
-            <div className="absolute inset-0 bg-[url('/wallpapers/Manga-Girl-Rain.png')] bg-cover bg-center filter blur-sm transform scale-105"></div>
+            <div className="absolute inset-0 bg-[url('wallpapers/Manga-Girl-Rain.png')] bg-cover bg-center filter blur-sm transform scale-105"></div>
             <div className="absolute inset-0 bg-black/40"></div>
 
             <div className="z-10 bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl w-full max-w-sm border border-white/20">
